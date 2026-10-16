@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "task-centric-robotic-perception"
+version = "0.1.0"
+description = "Reproducible event-triggered robotic visual perception and edge-offload benchmark"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = ["numpy>=1.24", "opencv-python>=4.7"]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+yolo = ["ultralytics>=8.2"]
+plots = ["matplotlib>=3.7"]
+
+[project.scripts]
+tc-perception = "tc_perception.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
